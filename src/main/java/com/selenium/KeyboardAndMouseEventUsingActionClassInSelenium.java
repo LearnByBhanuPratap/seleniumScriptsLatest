@@ -3,16 +3,18 @@ package com.selenium;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-public class HowToEnterDataInTextbox {
-	
+public class KeyboardAndMouseEventUsingActionClassInSelenium{
+
 	// Create instance of web driver
 	WebDriver driver;
 	
 	@Test
-	public void enterDataInTextField(){
+	public void keyboardAndMouseEventUsingActionClassInSelenium() throws InterruptedException{
 		
 		// First step set the driver location
 		//For Window user
@@ -25,8 +27,20 @@ public class HowToEnterDataInTextbox {
 		
 		// Navigate to site
 		driver.get("https://www.facebook.com/");
+		WebElement webElement = driver.findElement(By.name("firstname"));
+		Thread.sleep(3000);
+		Actions action = new Actions(driver);
+		action.moveToElement(webElement).click()
+		.keyDown(webElement,Keys.SHIFT).
+		sendKeys(webElement,"hello")
+		.keyUp(webElement,Keys.SHIFT)
+		.doubleClick(webElement)
+		.contextClick().build();
+		action.perform();
 		// enter email address
-		driver.findElement(By.xpath("//*[@id='email']")).sendKeys("test@gmail.com");
+		//driver.findElement(By.xpath("//*[@id='email']")).sendKeys("test@gmail.com");
+		
+		
 
 	}
 }
