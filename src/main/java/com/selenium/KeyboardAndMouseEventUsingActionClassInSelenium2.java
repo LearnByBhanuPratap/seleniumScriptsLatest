@@ -11,7 +11,7 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-public class KeyboardAndMouseEventUsingActionClassInSelenium {
+public class KeyboardAndMouseEventUsingActionClassInSelenium2 {
 
 	// Create instance of web driver
 	WebDriver driver;
@@ -27,13 +27,20 @@ public class KeyboardAndMouseEventUsingActionClassInSelenium {
 
 		// Create Object of driver.
 		driver = new ChromeDriver();
-		driver.get("http://www.google.com/");
+		driver.get("https://www.facebook.com/");
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		WebElement text = driver.findElement(By.name("q"));
+		
+		WebElement firstname = driver.findElement(By.name("firstname"));
+		WebElement lastname = driver.findElement(By.name("lastname"));
+		WebElement email = driver.findElement(By.name("reg_email__"));
+		WebElement pass = driver.findElement(By.name("reg_passwd__"));
 		
 		Actions action = new Actions(driver);
-		Action action1 = action.keyDown(text, Keys.SHIFT).sendKeys("Bhanu Pratap").keyUp(text,Keys.SHIFT).build();
-		action1.perform();
+		action.keyDown(firstname, Keys.SHIFT).sendKeys("Bhanu Pratap").keyUp(firstname,Keys.SHIFT).build().perform();
+		action.keyDown(lastname, Keys.SHIFT).sendKeys("Singh").keyUp(lastname,Keys.SHIFT).build().perform();
+		action.keyDown(email, Keys.SHIFT).sendKeys("tset@gmail.com").keyUp(email,Keys.SHIFT).build().perform();
+		action.keyDown(pass, Keys.SHIFT).sendKeys("68899900").keyUp(pass,Keys.SHIFT).build().perform();
 
 	}
 }

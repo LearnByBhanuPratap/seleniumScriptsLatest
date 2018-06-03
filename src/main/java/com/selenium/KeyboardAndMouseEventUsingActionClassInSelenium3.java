@@ -1,5 +1,9 @@
 package com.selenium;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -11,13 +15,13 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-public class KeyboardAndMouseEventUsingActionClassInSelenium {
+public class KeyboardAndMouseEventUsingActionClassInSelenium3 {
 
 	// Create instance of web driver
 	WebDriver driver;
 
 	@Test
-	public void keyboardAndMouseEventUsingActionClassInSelenium() throws InterruptedException {
+	public void keyboardAndMouseEventUsingActionClassInSelenium() throws InterruptedException, AWTException {
 
 		// First step set the driver location
 		// For Window user
@@ -27,13 +31,14 @@ public class KeyboardAndMouseEventUsingActionClassInSelenium {
 
 		// Create Object of driver.
 		driver = new ChromeDriver();
-		driver.get("http://www.google.com/");
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		WebElement text = driver.findElement(By.name("q"));
-		
-		Actions action = new Actions(driver);
-		Action action1 = action.keyDown(text, Keys.SHIFT).sendKeys("Bhanu Pratap").keyUp(text,Keys.SHIFT).build();
-		action1.perform();
-
+		//Launch the first URL
+		driver.get("https://www.seleniumhq.org/");
+		WebElement link = driver.findElement(By.xpath("//*[@id='menu_projects']/a"));
+		Actions newTab = new Actions(driver);
+		// for mac
+		newTab.keyDown(Keys.COMMAND).keyDown(Keys.SHIFT).click(link).keyUp(Keys.COMMAND).keyUp(Keys.SHIFT).build().perform();
+		// for window
+		newTab.keyDown(Keys.CONTROL).keyDown(Keys.SHIFT).click(link).keyUp(Keys.CONTROL).keyUp(Keys.SHIFT).build().perform();
+		Thread.sleep(5000);
 	}
 }
