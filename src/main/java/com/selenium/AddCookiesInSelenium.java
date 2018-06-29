@@ -27,11 +27,10 @@ public class AddCookiesInSelenium {
 		// An implicit wait tells WebDriver to poll the DOM for a certain amount of time when trying to find an element
 		// or elements if they are not immediately available.
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		
+		// to add cookie need to create object of Cookie class
 		Cookie cookie = new Cookie("customeCookie", "12345");
-		
 		driver.manage().addCookie(cookie);
-		
+		// it will get all cookie of web page
 		Set<Cookie> cookies = driver.manage().getCookies();
 		for(Cookie cook : cookies){
 			System.out.println(cook);

@@ -30,9 +30,10 @@ public class KeyboardAndMouseEventUsingActionClassInSelenium {
 		driver.get("http://www.google.com/");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		WebElement text = driver.findElement(By.name("q"));
-		
 		Actions action = new Actions(driver);
-		Action action1 = action.keyDown(text, Keys.SHIFT).sendKeys("Bhanu Pratap").keyUp(text,Keys.SHIFT).build();
+		Action action1 = action.keyDown(text, Keys.SHIFT)
+		.sendKeys("Bhanu Pratap")
+		.keyUp(text,Keys.SHIFT).build();
 		action1.perform();
 
 	}

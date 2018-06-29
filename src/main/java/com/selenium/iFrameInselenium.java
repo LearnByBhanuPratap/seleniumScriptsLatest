@@ -28,12 +28,17 @@ public class iFrameInselenium {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 		driver.get("file:///Users/bsingh5/Downloads/startbootstrap-sb-admin-2-gh-pages/pages/forms.html");
+		// switch frame based on index
 		driver.switchTo().frame(0);
-		//driver.switchTo().frame("nameOfIframe");
-		//driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@src='frame.html']")));
-		//driver.switchTo().frame(0).switchTo().frame(2);
-		//driver.switchTo().frame("nameOfIframe").switchTo().frame("name");
-		//driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@src='frame.html']"))).switchTo().frame("name");
+		// switch frame based on frame name
+		driver.switchTo().frame("nameOfIframe");
+		// switch frame based on web element
+		driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@src='frame.html']")));
+		// when you have frame within frame
+		driver.switchTo().frame(0).switchTo().frame(2);
+		driver.switchTo().frame("nameOfIframe").switchTo().frame("name");
+		// when you have frame within frame
+		driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@src='frame.html']"))).switchTo().frame("name");
 		
 		driver.findElement(By.xpath("/html/body/div/form/div/input[1]")).sendKeys("userName");
 		

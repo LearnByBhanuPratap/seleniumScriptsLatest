@@ -23,7 +23,6 @@ public class DeleteAllCookieInSelenium {
 		driver = new ChromeDriver();
 		driver.navigate().to("http://flipkart.com/");
 		driver.manage().deleteAllCookies();
-		
         // After adding the cookie we will check that by displaying all the cookies.
 		Set<Cookie> cookiesList =  driver.manage().getCookies();
 		for(Cookie getcookies :cookiesList) {

@@ -20,10 +20,11 @@ public class ZoomInZoomOutInSelenium {
 		driver = new ChromeDriver();
 		
 		driver.get("http://automationpractice.com/index.php");
-		
+		// zoom out by 40%
 		((JavascriptExecutor) driver).executeScript("document.body.style.zoom='40%'");
 		
 		Thread.sleep(3000);
+		// zoom out by 100%
 		((JavascriptExecutor) driver).executeScript("document.body.style.zoom='100%'");
 		
 	}

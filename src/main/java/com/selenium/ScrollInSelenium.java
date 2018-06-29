@@ -8,9 +8,7 @@ import org.testng.annotations.Test;
 
 public class ScrollInSelenium {
 
-
 	WebDriver driver;
-
 	@Test
 	public void scrollInSelenium() throws InterruptedException {
 		// First step set the driver location

@@ -30,9 +30,13 @@ public class KeyboardAndMouseEventUsingActionClassInSelenium3 {
 		WebElement link = driver.findElement(By.xpath("//*[@id='menu_projects']/a"));
 		Actions action = new Actions(driver);
 		// for mac
-		action.keyDown(Keys.COMMAND).keyDown(Keys.SHIFT).click(link).keyUp(Keys.COMMAND).keyUp(Keys.SHIFT).build().perform();
+		action.keyDown(Keys.COMMAND).keyDown(Keys.SHIFT)
+		.click(link).keyUp(Keys.COMMAND)
+		.keyUp(Keys.SHIFT).build().perform();
 		// for window
-		//action.keyDown(Keys.CONTROL).keyDown(Keys.SHIFT).click(link).keyUp(Keys.CONTROL).keyUp(Keys.SHIFT).build().perform();
+		action.keyDown(Keys.CONTROL)
+		.keyDown(Keys.SHIFT).click(link)
+		.keyUp(Keys.CONTROL).keyUp(Keys.SHIFT).build().perform();
 		//Thread.sleep(5000);
 	}
 }
